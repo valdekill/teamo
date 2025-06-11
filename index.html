@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Surpresa Para Você ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff6b9d, #ff8a9b, #ffa8a8, #ffb7b7);
+            background-size: 100% 100%;
+            animation: gradient 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 90%;
+            padding: 20px;
+        }
+
+        .stage {
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .stage.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8) }
+            to { opacity: 1; transform: scale(1) }
+        }
+
+        /* Estágio 1 - Coração Batendo */
+        .heart {
+            font-size: 8rem;
+            color: #ff1744;
+            cursor: pointer;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .heart:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1) }
+            50% { transform: scale(1.1) }
+        }
+
+        .instruction {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            opacity: 0.9;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7 }
+            50% { opacity: 1 }
+        }
+
+        /* Estágio 2 - Primeira Mensagem */
+        .love-message {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) }
+            40% { transform: translateY(-10px) }
+            60% { transform: translateY(-5px) }
+        }
+
+        .memes-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .meme {
+            font-size: 4rem;
+            animation: rotate 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .meme:nth-child(1) { animation-delay: 0s }
+        .meme:nth-child(2) { animation-delay: 0.5s }
+        .meme:nth-child(3) { animation-delay: 1s }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg) }
+            25% { transform: rotate(10deg) }
+            75% { transform: rotate(-10deg) }
+        }
+
+        .continue-btn {
+            background: linear-gradient(45deg, #ff1744, #ff6b9d);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.3rem;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Estágio 3 - Texto Romântico */
+        .romantic-text {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin: 30px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dancing-memes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .dancing-meme {
+            font-size: 3rem;
+            animation: dance 1s ease-in-out infinite alternate;
+        }
+
+        .dancing-meme:nth-child(even) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes dance {
+            0% { transform: translateY(0px) rotate(0deg) }
+            100% { transform: translateY(-15px) rotate(10deg) }
+        }
+
+        /* Estágio 4 - Gift Card */
+        .gift-section {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 15px 35px rgba(0,0,0,0.3) }
+            to { box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5) }
+        }
+
+        .gift-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .gift-code {
+            background: rgba(0,0,0,0.8);
+            color: #4CAF50;
+            padding: 20px;
+            border-radius: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin: 25px 0;
+            border: 3px dashed #4CAF50;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1 }
+            51%, 100% { opacity: 0.8 }
+        }
+
+        .copy-btn {
+            background: #ff1744;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: #d50000;
+            transform: scale(1.05);
+        }
+
+        .celebration-memes {
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: celebrate 0.8s ease-in-out infinite;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1) rotate(0deg) }
+            50% { transform: scale(1.2) rotate(5deg) }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .heart { font-size: 6rem }
+            .love-message { font-size: 2rem }
+            .romantic-text { font-size: 1.5rem; padding: 20px }
+            .gift-title { font-size: 2.2rem }
+            .gift-code { font-size: 1.4rem; letter-spacing: 2px }
+            .meme { font-size: 3rem }
+        }
+
+        @media (max-width: 480px) {
+            .heart { font-size: 5rem }
+            .love-message { font-size: 1.6rem }
+            .romantic-text { font-size: 1.3rem }
+            .memes-container { gap: 10px }
+            .dancing-memes { gap: 10px }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="/music/George Michael - Careless Whisper (Official Video).mp3" type="audio/mpeg">
+    </audio>
+    <div class="container">
+        <!-- Estágio 1: Coração Batendo -->
+        <div id="stage1" class="stage active">
+            <div class="heart" onclick="nextStage()">❤️</div>
+            <p class="instruction">Oiii, meu bebê!! Clique no coração! 😘😘</p>
+        </div>
+
+        <!-- Estágio 2: Primeira Mensagem -->
+        <div id="stage2" class="stage">
+            <div class="memes-container">
+                <div class="meme"><img style="width: 40%;" src="/img/minion heart.jpg" alt=""></div>
+            </div>
+            <h1 class="love-message">EU TE AMO MUITO! 😭😕❤</h1>
+            <p class="instruction">Queria <b>MUITO</b> estar com você e fornecer um presente real, mas infelizmente você escolheu nascer longe de mim :(</p>
+            <p class="instruction">Porém! Eu fiz isso e espero que goste 😁😚</p>
+            <div class="memes-container">
+                <div class="meme"><img style="width: 40%;" src="/img/te amo.jpg" alt=""></div>
+            </div>
+            <p style="font-size: 1.4rem; margin: 20px 0;">
+                Você é muito especial para mim, princesa! ✨
+            </p>
+            <button class="continue-btn" onclick="nextStage()">
+                Clique aqui! 💕
+            </button>
+        </div>
+
+        <!-- Estágio 3: Texto Romântico -->
+        <div id="stage3" class="stage">
+            <div class="romantic-text">
+So che non ce n'era bisogno,
+ma come non fare qualcosa per mia moglie??<br><br>
+
+Amore, sei incredibile e unica per me!<br>
+Spero che vivremo insieme per sempre! 🤭<br>
+Continua ad essere quella ragazza incredibile che sei!<br><br>
+
+Grazie di esistere!!! 💕💕
+            </div>
+            <p>Noi, tesoro</p>
+            <div class="dancing-memes">
+                <span class="dancing-meme"><img style="width: 50%;" src="/img/download.jpg"></span>
+            </div>
+            <button class="continue-btn" onclick="nextStage()">
+                Seu presente, meu amor. 😔
+            </button>
+        </div>
+
+        <!-- Estágio 4: Gift Card -->
+        <div id="stage4" class="stage">
+            <div class="gift-section">
+                <h2 class="gift-title">TCHA RAM!! 😱</h2>
+                <p style="font-size: 1.6rem; margin: 20px 0;">
+                    Comprei um Gift card para você, meu amor 😔 <br>
+                    sei que não é a melhor coisa, mas foi de coração. <br>
+                    Use com moderação! 🤭🤭🤭
+                </p>
+                <div style="padding: 10%; font-size: 15px;" class="gift-code" id="giftCode">
+                    <p>XXXXXXXXXXXXXXX</p>
+                </div>
+                <p style="font-size: 1.3rem; margin: 15px 0;">
+                    R$ 50,00 para qualquer joguinho no celular para voce, amor :) 
+                </p>
+                <button class="copy-btn" onclick="copyCode()">
+                    📋 Copiar Código
+                </button>
+                <div class="celebration-memes">
+                     <img style="width: 70%;"  src="/img/Xd.jpg"
+                </div>
+                <p style="font-size: 1.2rem; margin-top: 20px; opacity: 0.9;">
+                    <em>Mim amar muito você! 💕</em>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStage = 1;
+
+        function nextStage() {
+            // Esconder estágio atual
+            document.getElementById('stage' + currentStage).classList.remove('active');
+            
+            // Mostrar próximo estágio
+            currentStage++;
+            document.getElementById('stage' + currentStage).classList.add('active');
+        }
+
+        function copyCode() {
+            const code = "AMOR2024-50RS-GIFT";
+            
+            // Tentar usar a API moderna
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(() => {
+                    showCopySuccess();
+                }).catch(() => {
+                    fallbackCopy(code);
+                });
+            } else {
+                fallbackCopy(code);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopySuccess();
+            } catch (err) {
+                alert('Código: ' + text + '\n\nCopie manualmente!');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showCopySuccess() {
+            const btn = document.querySelector('.copy-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✅ Copiado!';
+            btn.style.background = '#4CAF50';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '#ff1744';
+            }, 2000);
+        }
+
+        // Adicionar alguns efeitos especiais
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efeito de partículas de coração (opcional)
+            setInterval(() => {
+                if (currentStage === 1) {
+                    createFloatingHeart();
+                }
+            }, 2000);
+        });
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💕';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.fontSize = '2rem';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '-1';
+            heart.style.opacity = '0.7';
+            heart.style.transition = 'all 3s ease-out';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.top = '-100px';
+                heart.style.opacity = '0';
+            }, 100);
+            
+            setTimeout(() => {
+                document.body.removeChild(heart);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
